@@ -27,7 +27,7 @@ class Test_Profile_01:
     @pytest.mark.sanity
     @pytest.mark.regression
     def test_profileedit(self, setup):
-        self.mesg="Operation completed successfully"
+        self.mesg = "Operation completed successfully"
         self.logger.info("**********profile edit************")
         self.driver = setup
         self.driver.get(self.baseURL)
@@ -46,6 +46,12 @@ class Test_Profile_01:
         self.logger.info("************Login Successfull*************")
 
         self.ProfilePageqa = ProfilePageqa(self.driver)
+        #self.ProfilePageqa.clickOnVerticalscroll()
+        #self.ProfilePageqa.scrollToElement()
+        self.ProfilePageqa.scrollToEnd()
+        time.sleep(10)
+        self.ProfilePageqa.scrollTobackup()
+        time.sleep(10)
         self.ProfilePageqa.clickOnIPN()
         time.sleep(20)
         self.ProfilePageqa.clickOnConfig()
@@ -58,14 +64,27 @@ class Test_Profile_01:
         time.sleep(10)
         self.ProfilePageqa.btnOnProfile()
         time.sleep(10)
+        self.ProfilePageqa.doubleClickcountry()
+        time.sleep(10)
+        self.ProfilePageqa.tabClose()
+        time.sleep(10)
         self.ProfilePageqa.preOnProfile()
+        time.sleep(10)
+        self.ProfilePageqa.mousehoverCountryname()
         time.sleep(10)
         self.ProfilePageqa.btneditOnProfile()
         time.sleep(10)
+        self.ProfilePageqa.checkBoxFivegchecked()
+        time.sleep(5)
+        self.ProfilePageqa.percentageCheck()
+        time.sleep(5)
+        self.ProfilePageqa.percentageCheckOne()
+        time.sleep(30)
         self.ProfilePageqa.checkOnProfile()
         time.sleep(10)
         self.ProfilePageqa.btnOnProfileSave()
         time.sleep(10)
+        self.ProfilePageqa.validationMessPercen()
 
         # self.msg = self.driver.find_element(By.XPATH, "//span[.='Operation completed successfully']").text
         # print(self.msg)
@@ -77,6 +96,13 @@ class Test_Profile_01:
             assert True == False
 
         time.sleep(10)
+        self.ProfilePageqa.clickOnRedirectionpatt()
+        #time.sleep(10)
+        #self.ProfilePageqa.clickOnUseCountrysettings()
+        self.ProfilePageqa.drpOnProfileRedir("Diameter Unable To Comply")
+        time.sleep(10)
+        self.ProfilePageqa.btnOnProfileSave()
+
         self.ProfilePageqa.clickOnProfile()
         time.sleep(10)
 
